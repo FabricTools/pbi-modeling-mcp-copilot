@@ -48,6 +48,9 @@ At minimum, you need these values:
 - `AZURE_CLIENT_ID`
 - `AZURE_CLIENT_SECRET`
 
+> [!WARNING]
+> Raw `client_secret` values for service principals should generally be avoided in production environments. They are inherently unsafe because a powerful raw secret has to be moved between systems, and they create operational risk because service principal secrets expire and require manual rotation before that expiration to avoid outages. In production, secret-less OIDC authentication should generally be preferred. However, the Power BI Modeling MCP server currently only supports raw client secrets, so a client secret is the only available option for this specific setup today.
+
 Recommended Power BI setup flow:
 
 1. Register a Microsoft Entra app and create a client secret.
